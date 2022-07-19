@@ -1,0 +1,20 @@
+.Container{
+    width : 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Container div{
+    width : 15%;
+    justify-content: center;
+    align-items: center;
+}
+
+.inMenu {
+    cursor: pointer;
+}
+
+.inMenu:hover{
+    color : #FCAE1E;
+}
