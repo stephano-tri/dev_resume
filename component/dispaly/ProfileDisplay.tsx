@@ -5,8 +5,11 @@ import { FaGitAlt } from "@react-icons/all-files/fa/FaGitAlt";
 import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
 import Display from '../../styles/Display.module.css';
 import styled from "styled-components";
+import MobileFlag from "../layout/MobileFlag";
 
 const ProfileDisplay = () => {
+
+    const isMobile = MobileFlag();
 
     const profile = [
         {tag : "Name" , val : "Jihwan Eom"},
@@ -36,7 +39,7 @@ const ProfileDisplay = () => {
 
     const generateIntroduce = () => {
         return (
-            <div style={{width : '448px', height : '100%' , display: 'flex' , flexDirection: 'column'}}>
+            <div style={{width : !isMobile ? "100%" : '550px', height : '100%' , display: 'flex' , flexDirection: 'column'}}>
                 {profile.map((pr: any , idx: number) => {
                    return (
                        <InsideIntroduce>
@@ -54,11 +57,13 @@ const ProfileDisplay = () => {
     }
 
     return (
-        <div style={{width : '100%' , height : '188px' , display : 'flex' , marginTop : '25px' , flexDirection : 'row'}}>
-            <div style={{width : '180px' ,height : '188px'}}>
-                <Image src={myPic} layout={'responsive'} className={Display.MainImg}/>
+        <div style={{width : !isMobile ? "700px" : '500px', padding : '0 2rem' ,  height : '100%' , display : 'flex' , marginTop : '25px' , flexDirection : 'row'}}>
+            <div style={{width : '250px' ,height : '188px'}}>
+                {!isMobile &&
+                    <Image src={myPic} layout={'responsive'} className={Display.MainImg}/>
+                }
             </div>
-            <div style={{display: 'flex' , flexDirection: 'column' , marginLeft: '15px'}}>
+            <div style={{width : !isMobile ? '700px' : '500px' , display: 'flex' , flexDirection: 'column' , marginLeft: !isMobile ? '15px' : '0px'}}>
                     {generateIcon('all')}
                     {generateIntroduce()}
             </div>

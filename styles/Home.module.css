@@ -1,4 +1,5 @@
 .container {
+  overflow-x : hidden;
 }
 
 .profileMain {
@@ -142,10 +143,9 @@
 
 .descriptionArea {
   margin-top : 1rem;
-  max-width: 700px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
   .grid {
     width: 100%;
     flex-direction: column;

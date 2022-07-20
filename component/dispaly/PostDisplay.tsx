@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import MobileFlag from "../layout/MobileFlag";
 
 interface POST {
     id : string
@@ -13,13 +14,16 @@ interface POSTS {
 
 
 const PostDisplay : React.FunctionComponent<POSTS> = ({posts}) => {
+
+    const isMobile = MobileFlag();
+
     return(
-        <Container>
+        <Container style={{width : !isMobile ? '750px' : '550px', height : '100%' , marginTop : '15px' }}>
             <Header>
-                <TabElement>
+                <TabElement style={{width : '35%'}}>
                     Type
                 </TabElement>
-                <TabElement style={{width : '200%'}}>
+                <TabElement style={{width : '75%'}}>
                     Title
                 </TabElement>
                 <TabElement>
@@ -30,10 +34,10 @@ const PostDisplay : React.FunctionComponent<POSTS> = ({posts}) => {
                 posts.map((post , idx) => (
                     <Contents onClick={() => {window.open(post.url)}}>
                             <Content>
-                                <ContentElement>
+                                <ContentElement style={{width : '35%'}}>
                                     {'Backend'}
                                 </ContentElement>
-                                <ContentElement style={{width : '200%'}}>
+                                <ContentElement style={{width : '75%'}}>
                                     {post.name}
                                 </ContentElement>
                                 <ContentElement>
@@ -53,7 +57,7 @@ const Container = styled.div`
     width : 100%;
     height : 100%;
     flex-direction : column;
-    padding : 1.5rem;
+    padding : 2.5rem;
 `
 
 const Header = styled.div`

@@ -1,6 +1,7 @@
 import tab from '../../styles/Tab.module.css'
 import {Menu} from "../../types/Fundamental";
 import React from "react";
+import MobileFlag from "../layout/MobileFlag";
 
 const MenuData : Menu[] =[
     {name : "Profile"},
@@ -14,9 +15,10 @@ interface IProps {
 }
 
 const HeaderTab : React.FunctionComponent<IProps> = ({index , onClickHandler}) => {
+    const isMobile = MobileFlag();
 
     return(
-        <div key={"mainMenuTab"} className={tab.Container}>
+        <div key={"mainMenuTab"} className={tab.Container} style={{width : !isMobile ? "700px" : '100%'}}>
             {
                 MenuData.map((v,i) => (
                     <>
