@@ -1,7 +1,7 @@
 import client from "../client";
 
 const fetchName = async (pageId : string) => {
-    const response = await client().get(`/pages/${pageId}/properties/Name`)
+    const response = await client().get(`/v1/pages/${pageId}/properties/Name`)
     if(response){
         return response
     }

@@ -8,18 +8,30 @@ import MobileFlag from "../component/layout/MobileFlag";
 import ProfileDisplay from "../component/dispaly/ProfileDisplay";
 import PostDisplay from "../component/dispaly/PostDisplay";
 import Fetch from "../api/post/Fetch";
+import FetchName from "../api/post/FetchName";
 
 export async function getServerSideProps(){
   const res = await Fetch()
+  let pageInfo = res.data.results.map((page , idx) => {
+    return {
+      id : page.id,
+      url : page.url
+    }
+  })
 
-  return {props : {data : res.data}}
+  let pages = []
+  for await (let param of pageInfo){
+    const res = await FetchName(param.id)
+    pages.push({
+    ...param,
+    name : res.data.results[0].title.plain_text
+    })
+ }
+
+  return {props : {data : pages}}
 }
 
 const Home: NextPage = (props) => {
-
-  React.useEffect(() => {
-    console.log(props.data)
-  },[])
 
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
   const isMobile = MobileFlag();
@@ -29,7 +41,7 @@ const Home: NextPage = (props) => {
       case 0:
         return <ProfileDisplay/>
       case 1:
-        return <PostDisplay/>
+        return <PostDisplay posts={props.data}/>
     }
   },[])
 

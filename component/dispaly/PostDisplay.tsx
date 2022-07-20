@@ -1,24 +1,48 @@
 import styled from "styled-components";
+import React from "react";
 
-const PostDisplay = () => {
+interface POST {
+    id : string
+    name : string
+    url : string
+}
+
+interface POSTS {
+    posts : POST[]
+}
+
+
+const PostDisplay : React.FunctionComponent<POSTS> = ({posts}) => {
     return(
         <Container>
             <Header>
-                <TabElement style={{marginRight : '75px'}}>
+                <TabElement>
                     Type
                 </TabElement>
-                <TabElement style={{marginRight : '295px'}}>
+                <TabElement style={{width : '200%'}}>
                     Title
                 </TabElement>
                 <TabElement>
                     Date
                 </TabElement>
             </Header>
-            <Contents>
-                <ContentElement>
-                    {'Backend           '} {'why we use webflux ?                                       '} {'06/30/22'}
-                </ContentElement>
-            </Contents>
+            {
+                posts.map((post , idx) => (
+                    <Contents onClick={() => {window.open(post.url)}}>
+                            <Content>
+                                <ContentElement>
+                                    {'Backend'}
+                                </ContentElement>
+                                <ContentElement style={{width : '200%'}}>
+                                    {post.name}
+                                </ContentElement>
+                                <ContentElement>
+                                    {'1994-08-19'}
+                                </ContentElement>
+                            </Content>
+                    </Contents>
+                ))
+            }
         </Container>
     )
 }
@@ -38,7 +62,7 @@ const Header = styled.div`
 `
 
 const TabElement = styled.div`
-    margin-right : 200px;
+    width : 100%;
 `
 
 const Contents = styled.div`
@@ -48,6 +72,12 @@ const Contents = styled.div`
     &:hover {
      color : #FCAE1E;
     }
+`
+
+const Content = styled.div`
+    width : 100%;
+    display : flex;
+    justify-content : flex-start;
 `
 
 const ContentElement = styled.div`
