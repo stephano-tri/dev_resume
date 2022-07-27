@@ -21,15 +21,15 @@ const WorkExperienceDisplay = () => {
                         Frontend Developer
                     </div>
                     <div style={{marginTop : '10px' , fontSize : '14px' , color : 'gray'}}>
-                        2022-03 ~ NOW
+                        2021-03 ~ NOW
                     </div>
-                    <div style={{marginTop : '12px' , fontSize : '12px' , color : 'gray'}}>
+                    <div style={{marginTop : '12px' , fontSize : '12px' , color : 'forestgreen'}}>
                         Spring-boot (+Webflux) , Express
                     </div>
-                    <div style={{marginTop : '2px' , fontSize : '12px' , color : 'gray'}}>
+                    <div style={{marginTop : '2px' , fontSize : '12px' , color : 'forestgreen'}}>
                         Mysql , ES , MongoDB
                     </div>
-                    <div style={{marginTop : '2px' , fontSize : '12px' , color : 'gray'}}>
+                    <div style={{marginTop : '2px' , fontSize : '12px' , color : 'forestgreen'}}>
                         React (+Next.js) , React-native
                     </div>
                 </ContentElement>

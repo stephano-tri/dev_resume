@@ -46,7 +46,7 @@ const ProfileDisplay = () => {
                             <div style={{whiteSpace : 'pre'}}>
                                 {pr.tag} { " : "}
                             </div>
-                            <div style={{color: '#FCAE1E' , fontWeight : 'bold'}}>
+                            <div style={{color: '#FCAE1E', fontWeight : 'bold'}}>
                                 {pr.val}
                             </div>
                        </InsideIntroduce>
