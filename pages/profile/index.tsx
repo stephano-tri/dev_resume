@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
-import {introduceOnMe} from "../../common/profile";
-import HeaderTab from "../../component/header/HeaderTab";
+import {introduceOnMe} from "../../src/common/profile";
+import HeaderTab from "../../src/component/header/HeaderTab";
 import {useEffect, useState} from "react";
-import MobileFlag from "../../component/layout/MobileFlag";
-import ProfileDisplay from "../../component/dispaly/ProfileDisplay";
+import MobileFlag from "../../src/component/layout/MobileFlag";
+import ProfileDisplay from "../../src/component/dispaly/ProfileDisplay";
 
 const Profile : NextPage = () => {
 

@@ -1,14 +1,23 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import {introduceOnMe} from "../common/profile";
-import HeaderTab from "../component/header/HeaderTab";
+import {introduceOnMe} from "../src/common/profile";
+import HeaderTab from "../src/component/header/HeaderTab";
 import React, {useState} from "react";
-import MobileFlag from "../component/layout/MobileFlag";
-import ProfileDisplay from "../component/dispaly/ProfileDisplay";
-import PostDisplay from "../component/dispaly/PostDisplay";
-import Fetch from "../api/post/Fetch";
-import FetchName from "../api/post/FetchName";
+import MobileFlag from "../src/component/layout/MobileFlag";
+import ProfileDisplay from "../src/component/dispaly/ProfileDisplay";
+import PostDisplay from "../src/component/dispaly/PostDisplay";
+import Fetch from "../src/api/post/Fetch";
+import FetchName from "../src/api/post/FetchName";
+import WorkExperienceDisplay from "../src/component/dispaly/WorkExperienceDisplay";
+
+/*
+  getServerSideProps vs getStaticProps
+
+  serversideprops는 페이지 로드시마다 새로 가져옴
+
+  staticprops는 빌드 타임시 딱 한번만 새로 가져온다.
+ */
 
 export async function getStaticProps(){
   const res = await Fetch()
@@ -44,6 +53,8 @@ const Home: NextPage = (props) => {
         return <ProfileDisplay/>
       case 1:
         return <PostDisplay posts={pages}/>
+      case 2:
+        return <WorkExperienceDisplay/>
     }
   },[])
 
@@ -81,12 +92,27 @@ const Home: NextPage = (props) => {
           </p>
         </div>
 
-        <div style={{width : !isMobile ? "750px" : '500px', padding : '0 2rem', display : 'flex' , flexDirection : 'column'}}>
+        <div style={{width : !isMobile ? "750px" : '500px', display : 'flex', padding : isMobile ? '0' : '0 2rem' , flexDirection : 'column' , marginTop : '20px'}}>
           <HeaderTab index={selectedIndex} onClickHandler={setSelectedIndex} />
-            <div style={{width : !isMobile ? "700px" : '500px' , alignItems : 'center' , justifyContent : 'center'}}>
+            <div style={{width : '100%' , padding : '1rem' , marginTop : '30px'}}>
+              <hr
+                  style={{
+                    width : '100%',
+                    backgroundColor: 'gray',
+                    color: 'gray',
+                    height: 3
+                  }}
+              />
+            </div>
+            <div style={{width : !isMobile ? "700px" : '500px' , alignItems : 'center' , justifyContent : 'center' , marginTop : '20px'}}>
               {showWhichClicked(selectedIndex)}
             </div>
         </div>
+
+
+        {/*
+        three.js area(div)
+        */}
 
         </main>
     </div>

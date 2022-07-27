@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import myPic from '../../public/resume_pic.jpg';
+import myPic from '../../../public/resume_pic.jpg';
 import { IconContext } from "react-icons";
 import { FaGitAlt } from "@react-icons/all-files/fa/FaGitAlt";
 import { FaEnvelope } from "@react-icons/all-files/fa/FaEnvelope";
-import Display from '../../styles/Display.module.css';
+import Display from '../../../styles/Display.module.css';
 import styled from "styled-components";
 import MobileFlag from "../layout/MobileFlag";
 

@@ -18,15 +18,15 @@ const PostDisplay : React.FunctionComponent<POSTS> = ({posts}) => {
     const isMobile = MobileFlag();
 
     return(
-        <Container style={{width : !isMobile ? '750px' : '550px', height : '100%' , marginTop : '15px' }}>
+        <Container style={{width : !isMobile ? '700px' : '550px', height : '100%' , marginTop : '15px'  }}>
             <Header>
-                <TabElement style={{width : '35%'}}>
+                <TabElement style={{width : '45%'}}>
                     Type
                 </TabElement>
                 <TabElement style={{width : '75%'}}>
                     Title
                 </TabElement>
-                <TabElement>
+                <TabElement style={{width : '200px'}}>
                     Date
                 </TabElement>
             </Header>
@@ -34,13 +34,13 @@ const PostDisplay : React.FunctionComponent<POSTS> = ({posts}) => {
                 posts.map((post , idx) => (
                     <Contents onClick={() => {window.open(post.url)}}>
                             <Content>
-                                <ContentElement style={{width : '35%'}}>
+                                <ContentElement style={{width : '45%'}}>
                                     {'Backend'}
                                 </ContentElement>
                                 <ContentElement style={{width : '75%'}}>
                                     {post.name}
                                 </ContentElement>
-                                <ContentElement>
+                                <ContentElement style={{width : '200px'}}>
                                     {'1994-08-19'}
                                 </ContentElement>
                             </Content>

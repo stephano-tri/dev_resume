@@ -1,4 +1,4 @@
-import tab from '../../styles/Tab.module.css'
+import tab from '../../../styles/Tab.module.css'
 import {Menu} from "../../types/Fundamental";
 import React from "react";
 import MobileFlag from "../layout/MobileFlag";
