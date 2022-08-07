@@ -67,7 +67,7 @@ const Home: NextPage = (props) => {
       <div style={{width : isMobile ? '550px' : '100%' , height : '10px' , background : "linear-gradient(to bottom right, #ff9933 0%, #ffff66 100%)"}}>
       </div>
       <Head>
-        <title>Eom-jihwan Developer</title>
+        <title>mr.eom resume</title>
         <meta name="description" content="head for resume"/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
