@@ -6,6 +6,7 @@ interface POST {
     id : string
     name : string
     url : string
+    created : string
 }
 
 interface POSTS {
@@ -20,13 +21,13 @@ const PostDisplay : React.FunctionComponent<POSTS> = ({posts}) => {
     return(
         <Container style={{width : !isMobile ? '700px' : '550px', height : '100%' , marginTop : '15px'  }}>
             <Header>
-                <TabElement style={{width : '45%'}}>
+                <TabElement style={{width : '30%'}}>
                     Type
                 </TabElement>
                 <TabElement style={{width : '75%'}}>
                     Title
                 </TabElement>
-                <TabElement style={{width : '200px'}}>
+                <TabElement style={{width : '150px'}}>
                     Date
                 </TabElement>
             </Header>
@@ -34,14 +35,14 @@ const PostDisplay : React.FunctionComponent<POSTS> = ({posts}) => {
                 posts.map((post , idx) => (
                     <Contents onClick={() => {window.open(post.url)}}>
                             <Content>
-                                <ContentElement style={{width : '45%'}}>
+                                <ContentElement style={{width : '30%'}}>
                                     {'Backend'}
                                 </ContentElement>
                                 <ContentElement style={{width : '75%'}}>
                                     {post.name}
                                 </ContentElement>
-                                <ContentElement style={{width : '200px'}}>
-                                    {'1994-08-19'}
+                                <ContentElement style={{width : '150px'}}>
+                                    {new Date(post.created).toLocaleDateString('en-US')}
                                 </ContentElement>
                             </Content>
                     </Contents>

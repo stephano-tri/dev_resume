@@ -6,7 +6,8 @@ import MobileFlag from "../layout/MobileFlag";
 const MenuData : Menu[] =[
     {name : "Profile"},
     {name : "Post"},
-    {name : "Work Experience"}
+    {name : "Work Experience"},
+    {name : "Project"}
 ]
 
 interface IProps {
@@ -23,14 +24,19 @@ const HeaderTab : React.FunctionComponent<IProps> = ({index , onClickHandler}) =
                 MenuData.map((v,i) => (
                     <>
                     <div key={i + '_' +v.name } onClick={() => {onClickHandler(i)}} className={'menu'}>
-                        <div style={{width : '100%'}} className={tab.inMenu}>
-                            {v.name}
+                        <div style={{display : 'flex'}}>
+                            <div style={{marginRight : '15px'}}>
+                                { i == index && '>.' }
+                            </div>
+                            <div className={tab.inMenu}>
+                                {v.name}
+                            </div>
                         </div>
                     </div>
                     <style jsx>{`
                     .menu {
                       color : ${i ==  index ? '#FCAE1E' : '#000000'};
-                      font-weight : ${i == index ? 'bold' : 'initial'}
+                      font-weight : ${i == index ? 'bold' : 'initial'};
                     }
                     `}
                     </style>

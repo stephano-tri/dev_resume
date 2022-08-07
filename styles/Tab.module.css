@@ -6,8 +6,13 @@
 }
 
 .Container div{
-    width : 15%;
+    width : 20%;
     justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    justify-content: left;
     align-items: center;
 }
 

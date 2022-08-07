@@ -3,13 +3,14 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {introduceOnMe} from "../src/common/profile";
 import HeaderTab from "../src/component/header/HeaderTab";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import MobileFlag from "../src/component/layout/MobileFlag";
 import ProfileDisplay from "../src/component/dispaly/ProfileDisplay";
 import PostDisplay from "../src/component/dispaly/PostDisplay";
 import Fetch from "../src/api/post/Fetch";
 import FetchName from "../src/api/post/FetchName";
 import WorkExperienceDisplay from "../src/component/dispaly/WorkExperienceDisplay";
+import ProjectDispaly from "../src/component/dispaly/ProjectDispaly";
 
 /*
   getServerSideProps vs getStaticProps
@@ -24,7 +25,8 @@ export async function getStaticProps(){
   let pageInfo = res?.data.results.map((page : any , idx : number) => {
     return {
       id : page.id,
-      url : page.url
+      url : page.url,
+      created : page.created_time
     }
   })
 
@@ -32,8 +34,8 @@ export async function getStaticProps(){
   for await (let param of pageInfo){
     const res = await FetchName(param.id)
     pages.push({
-    ...param,
-    name : res?.data.results[0].title.plain_text
+      ...param,
+      name : res?.data.results[0].title.plain_text,
     })
  }
 
@@ -55,11 +57,13 @@ const Home: NextPage = (props) => {
         return <PostDisplay posts={pages}/>
       case 2:
         return <WorkExperienceDisplay/>
+      case 3:
+        return <ProjectDispaly/>
     }
   },[])
 
   return (
-    <div className={styles.container} style={{width: isMobile ? '500px' : '100%' , height : '100%'}}>
+    <div className={styles.container} style={{width: isMobile ? '500px' : '100%'}}>
       <div style={{width : isMobile ? '550px' : '100%' , height : '10px' , background : "linear-gradient(to bottom right, #ff9933 0%, #ffff66 100%)"}}>
       </div>
       <Head>
@@ -92,9 +96,9 @@ const Home: NextPage = (props) => {
           </p>
         </div>
 
-        <div style={{width : !isMobile ? "750px" : '500px', display : 'flex', padding : isMobile ? '0' : '0 2rem' , flexDirection : 'column' , marginTop : '20px'}}>
-          <HeaderTab index={selectedIndex} onClickHandler={setSelectedIndex} />
-            <div style={{width : '100%' , padding : '1rem' , marginTop : '30px'}}>
+        <div style={{width : !isMobile ? "750px" : '100%', display : 'flex', padding : isMobile ? '0rem' : '0 2rem' , flexDirection : 'column' , marginTop : '20px'}}>
+            <HeaderTab index={selectedIndex} onClickHandler={setSelectedIndex} />
+            <div style={{width : '100%' , padding : '0.5rem' , marginTop : '20px'}}>
               <hr
                   style={{
                     width : '100%',
@@ -104,7 +108,7 @@ const Home: NextPage = (props) => {
                   }}
               />
             </div>
-            <div style={{width : !isMobile ? "700px" : '500px' , alignItems : 'center' , justifyContent : 'center' , marginTop : '20px'}}>
+            <div style={{width : !isMobile ? "700px" : '100%' , alignItems : 'center' , justifyContent : 'center'}}>
               {showWhichClicked(selectedIndex)}
             </div>
         </div>
