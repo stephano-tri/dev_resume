@@ -3,7 +3,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {introduceOnMe} from "../src/common/profile";
 import HeaderTab from "../src/component/header/HeaderTab";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import MobileFlag from "../src/component/layout/MobileFlag";
 import ProfileDisplay from "../src/component/dispaly/ProfileDisplay";
 import PostDisplay from "../src/component/dispaly/PostDisplay";
@@ -69,7 +69,7 @@ const Home: NextPage = (props) => {
       <Head>
         <title>mr.eom resume</title>
         <meta name="description" content="head for resume"/>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
