@@ -86,7 +86,7 @@ const Home: NextPage = (props) => {
             marginBlockEnd : '0px' ,
             fontSize : isMobile ? '3rem' : '4rem'
           }}>
-            <a href="https://github.com/stephano-tri">Jihwan Eom</a>{"  "} 입니다
+            <a href="https://github.com/stephano-tri">Eom</a>{"  "} 입니다
             <a>.</a>
           </h1>
         </div>
