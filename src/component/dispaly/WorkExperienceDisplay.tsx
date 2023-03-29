@@ -8,6 +8,9 @@ const WorkExperienceDisplay = () => {
                 <TabElement onClick={() => {window.open('http://sizl.co.kr/')}}>
                     SIZL
                 </TabElement>
+                <TabElement2>
+                    .
+                </TabElement2>
             </Header>
             <Contents>
                 스마트팩토리 관련 제조 공정 자동화 기술을 개발 (시리즈 A 투자 유치)
@@ -87,17 +90,21 @@ const Header = styled.div`
 `
 
 const TabElement = styled.div`
-    width : 100%;
-    font-size : 24px;
-    weight : bold;
+    font-size : 26px;
+    font-weight : bold;
     color : gray;
     &:hover {
      color : #FCAE1E;
     };
     cursor : pointer;
-    text-decoration : underline;
-    text-decoration-color : #FCAE1E;
-    text-decoration-thickness : 4px;
+`
+
+const TabElement2 = styled.div`
+    font-size : 30px;
+    font-weight : bold;
+    color : #FCAE1E;
+    margin-left : 3px;
+    margin-top : -5px;
 `
 
 const Contents = styled.div`

@@ -10,7 +10,7 @@ import PostDisplay from "../src/component/dispaly/PostDisplay";
 import Fetch from "../src/api/post/Fetch";
 import FetchName from "../src/api/post/FetchName";
 import WorkExperienceDisplay from "../src/component/dispaly/WorkExperienceDisplay";
-import ProjectDispaly from "../src/component/dispaly/ProjectDispaly";
+import ProjectDispaly from "../src/component/dispaly/ProjectDisplay";
 
 /*
   getServerSideProps vs getStaticProps
