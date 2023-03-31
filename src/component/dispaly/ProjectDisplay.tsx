@@ -46,7 +46,6 @@ const ProjectContent: React.FunctionComponent<Project> = ({header, subHeader, st
             </Content>
             <Content>
                 {description}
-                쇼핑몰의 결제 서비스를 시나리오로 여러 실패(잔액 부족, 재고 부족, 결제 실패 등)를 발생시켜 Orchestration 방식을 통한 Saga Pattern을 구현
             </Content>
         </Container>
     )
