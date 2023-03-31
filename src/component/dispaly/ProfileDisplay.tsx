@@ -14,8 +14,8 @@ const ProfileDisplay = () => {
     const isMobile = MobileFlag();
 
     const profile = [
-        {tag : "Name" , val : " jihwan"},
-        {tag : "Age" , val : " 29"},
+        {tag : "Name" , val : " Jihwan"},
+        {tag : "Age" , val : " 30"},
         {tag : "Education" , val : " 인천대학교 전자, 컴퓨터공학과 졸업(복수전공)"},
         {tag : "Position" , val : " Backend Developer"},
         {tag : "Contact" , val : " Please check the below"}
